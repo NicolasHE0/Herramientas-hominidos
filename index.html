@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herramientas líticas</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;900&family=Inter:wght@300;400;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f0f0f; color: #f0ece4; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding-bottom: 40px; }
+  header { width: 100%; padding: 24px 20px 16px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #c8b97a; margin-bottom: 8px; }
+  h1 { font-family: 'Cinzel', serif; font-size: clamp(20px, 6vw, 30px); font-weight: 900; color: #fff; }
+  h1 span { display: block; font-family: 'Inter', sans-serif; font-size: 0.45em; font-weight: 400; color: #888; margin-top: 4px; }
+  .comparacion { width: 100%; max-width: 600px; padding: 20px 16px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .modo { border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .modo-header { padding: 14px 16px 10px; text-align: center; }
+  .modo.uno .modo-header { background: #2d6a4f; }
+  .modo.dos .modo-header { background: #1d3557; }
+  .modo-num { font-family: 'Cinzel', serif; font-size: 28px; font-weight: 900; color: rgba(255,255,255,0.3); line-height: 1; }
+  .modo-nombre { font-size: 14px; font-weight: 700; color: #fff; margin-top: 2px; }
+  .modo-especie { font-size: 10px; color: rgba(255,255,255,0.6); margin-top: 2px; }
+  .modo-body { flex: 1; padding: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-top: none; border-radius: 0 0 12px 12px; }
+  .modo-body ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .modo-body li { font-size: 11.5px; color: #ccc; line-height: 1.4; padding-left: 14px; position: relative; }
+  .modo-body li::before { content: '—'; position: absolute; left: 0; color: #555; }
+  .modo.uno .modo-body li::before { color: #74c69d; }
+  .modo.dos .modo-body li::before { color: #63b3f5; }
+  .flecha { display: flex; align-items: center; justify-content: center; font-size: 28px; color: rgba(255,255,255,0.15); padding: 12px 0 4px; width: 100%; }
+  .salto { width: 100%; max-width: 600px; padding: 0 16px; margin-top: 4px; }
+  .salto-inner { background: rgba(200,185,122,0.08); border: 1px solid rgba(200,185,122,0.2); border-radius: 12px; padding: 16px 18px; }
+  .salto-titulo { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #c8b97a; margin-bottom: 8px; }
+  .salto-inner p { font-size: 13px; line-height: 1.6; color: #ccc; }
+  .salto-inner strong { color: #c8b97a; }
+  .linea { width: 100%; max-width: 600px; padding: 20px 16px 0; }
+  .linea-titulo { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #666; margin-bottom: 14px; text-align: center; }
+  .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .timeline::before { content: ''; position: absolute; left: 60px; top: 8px; bottom: 8px; width: 1px; background: rgba(255,255,255,0.1); }
+  .tl-item { display: flex; align-items: flex-start; gap: 16px; padding: 8px 0; }
+  .tl-fecha { width: 52px; text-align: right; font-size: 10px; color: #555; flex-shrink: 0; padding-top: 2px; line-height: 1.3; }
+  .tl-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; position: relative; z-index: 1; }
+  .tl-item.hab .tl-dot { background: #74c69d; }
+  .tl-item.erg .tl-dot { background: #ffb347; }
+  .tl-item.ere .tl-dot { background: #63b3f5; }
+  .tl-especie { font-size: 12px; font-weight: 600; }
+  .tl-item.hab .tl-especie { color: #74c69d; }
+  .tl-item.erg .tl-especie { color: #ffb347; }
+  .tl-item.ere .tl-especie { color: #63b3f5; }
+  .tl-desc { font-size: 11px; color: #888; margin-top: 1px; line-height: 1.4; }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Feria de Ciencias · Homínidos</div>
+  <h1>Herramientas líticas<span>La tecnología de piedra que cambió todo</span></h1>
+</header>
+<div class="comparacion">
+  <div class="modo uno">
+    <div class="modo-header">
+      <div class="modo-num">01</div>
+      <div class="modo-nombre">Olduvayense</div>
+      <div class="modo-especie">Homo habilis</div>
+    </div>
+    <div class="modo-body">
+      <ul>
+        <li>Tallada por una sola cara</li>
+        <li>Forma irregular</li>
+        <li>Hacha de mano básica</li>
+        <li>Hace 2,5 millones de años</li>
+        <li>Primera planificada</li>
+      </ul>
+    </div>
+  </div>
+  <div class="modo dos">
+    <div class="modo-header">
+      <div class="modo-num">02</div>
+      <div class="modo-nombre">Achelense</div>
+      <div class="modo-especie">H. ergaster / H. erectus</div>
+    </div>
+    <div class="modo-body">
+      <ul>
+        <li>Tallada por ambas caras</li>
+        <li>Simétrica y refinada</li>
+        <li>Hachas, hendedores, picos</li>
+        <li>Hace 1,7 millones de años</li>
+        <li>Múltiple uso</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="flecha">↓</div>
+<div class="salto">
+  <div class="salto-inner">
+    <div class="salto-titulo">El salto entre modo 1 y modo 2</div>
+    <p>Pasar de tallar <strong>una cara</strong> a tallar <strong>las dos</strong> requería imaginar la herramienta terminada antes de empezar. Eso exige abstracción y planificación: fue un salto cognitivo enorme.</p>
+  </div>
+</div>
+<div class="linea">
+  <div class="linea-titulo">Quién usó qué</div>
+  <div class="timeline">
+    <div class="tl-item hab">
+      <div class="tl-fecha">2,5 m.a.</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text">
+        <div class="tl-especie">H. habilis</div>
+        <div class="tl-desc">Modo 1 · primera herramienta consciente</div>
+      </div>
+    </div>
+    <div class="tl-item erg">
+      <div class="tl-fecha">1,7 m.a.</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text">
+        <div class="tl-especie">H. ergaster</div>
+        <div class="tl-desc">Modo 2 · inventa el bifaz achelense</div>
+      </div>
+    </div>
+    <div class="tl-item ere">
+      <div class="tl-fecha">1,8 m.a.–250k</div>
+      <div class="tl-dot"></div>
+      <div class="tl-text">
+        <div class="tl-especie">H. erectus</div>
+        <div class="tl-desc">Modo 2 en África/Europa · Modo 1 en Pekín y Java</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
